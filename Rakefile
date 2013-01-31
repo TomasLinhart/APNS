@@ -6,7 +6,7 @@ require 'spec/rake/spectask'
  
 GEM = 'apns'
 GEM_NAME = 'apns'
-GEM_VERSION = '0.9.0'
+GEM_VERSION = '1.0.0'
 AUTHORS = ['James Pozdena']
 EMAIL = "jpoz@jpoz.net"
 HOMEPAGE = "http://github.com/jpoz/apns"
