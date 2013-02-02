@@ -39,11 +39,10 @@ module APNS
   class FeedbackConnection < Connection
     def feedback
       apns_feedback = []
-      
-      while line = socket.gets   # Read lines from the socket
-        line.strip!
-        f = line.unpack('N1n1H140')
-        apns_feedback << [Time.at(f[0]), f[2]]
+
+      while (message = ssl.read(38))
+        timestamp, token_size, token = message.unpack('N1n1H*')
+        apns_feedback << [Time.at(timestamp), token]
       end
      
       apns_feedback
